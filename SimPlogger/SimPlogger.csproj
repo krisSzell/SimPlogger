@@ -161,6 +161,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706141155136_Init.cs" />
+    <Compile Include="Migrations\201706141155136_Init.Designer.cs">
+      <DependentUpon>201706141155136_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141159085_UpdatedBlogPostModel.cs" />
+    <Compile Include="Migrations\201706141159085_UpdatedBlogPostModel.Designer.cs">
+      <DependentUpon>201706141159085_UpdatedBlogPostModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141200399_AddedBlogBodyProperty.cs" />
+    <Compile Include="Migrations\201706141200399_AddedBlogBodyProperty.Designer.cs">
+      <DependentUpon>201706141200399_AddedBlogBodyProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\BlogPost.cs" />
@@ -222,6 +234,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706141155136_Init.resx">
+      <DependentUpon>201706141155136_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141159085_UpdatedBlogPostModel.resx">
+      <DependentUpon>201706141159085_UpdatedBlogPostModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141200399_AddedBlogBodyProperty.resx">
+      <DependentUpon>201706141200399_AddedBlogBodyProperty.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

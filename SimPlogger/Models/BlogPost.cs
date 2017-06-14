@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,9 +9,18 @@ namespace SimPlogger.Models
     public class BlogPost
     {
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
-        public string CtaHeader { get; set; }
+        [Required]
+        public string Header { get; set; }
+        [Required]
+        public string Body { get; set; }
+        [Required]
         public byte CategoryId { get; set; }
+        [Required]
+        public DateTime PostDate { get; set; }
+        [Required]
+        public string Author { get; set; }
 
         public Category Category { get; set; }
 
