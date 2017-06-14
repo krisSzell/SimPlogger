@@ -157,6 +157,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\BlogPostsController.cs" />
+    <Compile Include="Controllers\api\testController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,6 +174,10 @@
     <Compile Include="Migrations\201706141200399_AddedBlogBodyProperty.cs" />
     <Compile Include="Migrations\201706141200399_AddedBlogBodyProperty.Designer.cs">
       <DependentUpon>201706141200399_AddedBlogBodyProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.cs" />
+    <Compile Include="Migrations\201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.Designer.cs">
+      <DependentUpon>201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706141200399_AddedBlogBodyProperty.resx">
       <DependentUpon>201706141200399_AddedBlogBodyProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.resx">
+      <DependentUpon>201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
