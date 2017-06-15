@@ -121,6 +121,7 @@
     <Content Include="Scripts\NgApp\styles.bundle.js" />
     <Content Include="Scripts\NgApp\vendor.bundle.js" />
     <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\assets\simplogger-welcome-img.jpg" />
     <Content Include="src\tsconfig.app.json" />
     <Content Include="src\tsconfig.spec.json" />
     <Content Include="tsconfig.json" />
@@ -170,6 +171,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Images\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>

@@ -52,7 +52,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app works!';
+        this.title = 'TEST';
     }
     return AppComponent;
 }());
@@ -141,7 +141,7 @@ exports = module.exports = __webpack_require__(29)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".main-container {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n}\n.routing-content {\n  position: absolute;\n  right: 0;\n  height: 100%;\n  width: 100%;\n  padding-left: 400px;\n  background-color: #a1b2cd;\n}\n.side-nav {\n  position: absolute;\n  left: 0;\n  height: 100%;\n  width: 400px;\n  z-index: 1;\n  background-color: #384997;\n}\n.text-heading {\n  font-family: 'Exo', sans-serif;\n  font-weight: 300;\n  color: #EDF0FE;\n}\n.text-80 {\n  font-size: 80%;\n}\n.brand-title {\n  padding: 1rem 2rem;\n}\n/* Bootstrap overrides */\n.nav-pills .nav-item {\n  padding-top: .5rem;\n  padding-bottom: .5rem;\n}\n.nav-pills .nav-item .nav-link {\n  color: #EDF0FE;\n  font-weight: 600;\n}\n.nav-pills .nav-item .active {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n  background-color: #a1b2cd;\n  color: #384997;\n}\n", ""]);
 
 // exports
 
@@ -154,7 +154,7 @@ module.exports = module.exports.toString();
 /***/ 163:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  {{title}}\n</h1>\n<router-outlet></router-outlet>\n"
+module.exports = "<div class=\"main-container\">\n  <div class=\"side-nav\">\n    <img src=\"assets/simplogger-welcome-img.jpg\" alt=\"Welcome image\" class=\"img-fluid img-welcome\">\n    <div class=\"brand-title\">\n      <h2 class=\"text-heading text-center\">SimPlogger - <span class=\"text-80\">blogging made simple</span></h2>\n    </div>\n    <ul class=\"nav nav-pills flex-column\">\n      <li class=\"nav-item text-right\">\n        <a class=\"nav-link active\" href=\"#\">Your posts</a>\n      </li>\n      <li class=\"nav-item text-right\">\n        <a class=\"nav-link\" href=\"#\">New post</a>\n      </li>\n      <li class=\"nav-item text-right\">\n        <a class=\"nav-link\" href=\"#\">About</a>\n      </li>\n    </ul>\n  </div>\n  <router-outlet class=\"routing-content\"></router-outlet>\n</div>\n"
 
 /***/ }),
 

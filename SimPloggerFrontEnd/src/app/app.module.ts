@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PublishedPostsComponentComponent } from './published-posts-component/published-posts-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PublishedPostsComponentComponent
   ],
   imports: [
     BrowserModule,

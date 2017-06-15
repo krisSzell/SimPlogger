@@ -1,0 +1,51 @@
+.main-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+.routing-content {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  padding-left: 400px;
+  background-color: #a1b2cd;
+}
+.side-nav {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 400px;
+  z-index: 1;
+  background-color: #384997;
+}
+.text-heading {
+  font-family: 'Exo', sans-serif;
+  font-weight: 300;
+  color: #EDF0FE;
+}
+.text-80 {
+  font-size: 80%;
+}
+.brand-title {
+  padding: 1rem 2rem;
+}
+/* Bootstrap overrides */
+.nav-pills .nav-item {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.nav-pills .nav-item .nav-link {
+  color: #EDF0FE;
+  font-weight: 600;
+}
+.nav-pills .nav-item .active {
+  margin-left: 2rem;
+  border-radius: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #a1b2cd;
+  color: #384997;
+}
