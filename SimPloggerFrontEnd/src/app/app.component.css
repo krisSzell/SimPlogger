@@ -2,14 +2,10 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-}
-.routing-content {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  padding-left: 400px;
   background-color: #a1b2cd;
+}
+.main-content {
+  margin-left: 420px;
 }
 .side-nav {
   position: absolute;

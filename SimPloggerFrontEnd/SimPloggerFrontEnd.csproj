@@ -120,6 +120,8 @@
     <Content Include="Scripts\NgApp\polyfills.bundle.js" />
     <Content Include="Scripts\NgApp\styles.bundle.js" />
     <Content Include="Scripts\NgApp\vendor.bundle.js" />
+    <Content Include="src\app\components\published-posts-component\published-posts.component.css" />
+    <Content Include="src\app\components\published-posts-component\published-posts.component.html" />
     <Content Include="src\assets\.gitkeep" />
     <Content Include="src\assets\simplogger-welcome-img.jpg" />
     <Content Include="src\tsconfig.app.json" />
@@ -160,6 +162,14 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\components\published-posts-component\published-posts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\published-posts-component\published-posts.component.ts" />
+    <TypeScriptCompile Include="src\app\components\spinner.component.ts" />
+    <TypeScriptCompile Include="src\app\services\posts.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\services\posts.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\category.ts" />
+    <TypeScriptCompile Include="src\app\shared\global-routes.ts" />
+    <TypeScriptCompile Include="src\app\shared\post.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />

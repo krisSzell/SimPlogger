@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var published_posts_component_1 = require("./components/published-posts-component/published-posts.component");
 var routes = [
-    {
-        path: '',
-        children: []
-    }
+    { path: 'published', component: published_posts_component_1.PublishedPostsComponent },
+    { path: '', component: published_posts_component_1.PublishedPostsComponent },
+    { path: '**', component: published_posts_component_1.PublishedPostsComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

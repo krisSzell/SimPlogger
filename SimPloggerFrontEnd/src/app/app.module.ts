@@ -5,12 +5,18 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PublishedPostsComponentComponent } from './published-posts-component/published-posts-component.component';
+import { PublishedPostsComponent } from './components/published-posts-component/published-posts.component';
+import { SpinnerComponent } from './components/spinner.component';
+
+import { PostsService } from './services/posts.service';
+import { NewPostComponent } from './components/new-post/new-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PublishedPostsComponentComponent
+    PublishedPostsComponent,
+    SpinnerComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +24,7 @@ import { PublishedPostsComponentComponent } from './published-posts-component/pu
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

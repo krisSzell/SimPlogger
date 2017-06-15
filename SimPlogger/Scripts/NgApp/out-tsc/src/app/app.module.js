@@ -12,6 +12,9 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
+var published_posts_component_1 = require("./components/published-posts-component/published-posts.component");
+var spinner_component_1 = require("./components/spinner.component");
+var posts_service_1 = require("./services/posts.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +23,9 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         declarations: [
-            app_component_1.AppComponent
+            app_component_1.AppComponent,
+            published_posts_component_1.PublishedPostsComponent,
+            spinner_component_1.SpinnerComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
@@ -28,7 +33,7 @@ AppModule = __decorate([
             http_1.HttpModule,
             app_routing_module_1.AppRoutingModule
         ],
-        providers: [],
+        providers: [posts_service_1.PostsService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
