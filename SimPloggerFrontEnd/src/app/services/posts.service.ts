@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -7,7 +7,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PostsService {
 
-  postsUrl = "http://localhost:55150/api/blogposts";
+  postsUrl = "http://localhost:55150/api/blogposts/";
+
+  headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+  options = new RequestOptions({
+    headers: this.headers
+  });
 
   constructor(private _http: Http) { }
 
@@ -18,6 +25,16 @@ export class PostsService {
 
   getSinglePost(postId: number) {
     return this._http.get(this.postsUrl + "/" + postId)
+      .map(res => res.json());
+  }
+
+  savePost(post) {
+    return this._http.post(this.postsUrl, JSON.stringify(post), this.options)
+      .map(res => res.json());
+  }
+
+  deletePost(postId) {
+    return this._http.delete(this.postsUrl + postId)
       .map(res => res.json());
   }
 

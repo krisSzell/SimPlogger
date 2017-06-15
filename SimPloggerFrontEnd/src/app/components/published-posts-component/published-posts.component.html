@@ -1,7 +1,22 @@
-<h1>Published posts</h1>
+<div class="row">
+  <h1 class="header">Published posts</h1>
+</div>
 <div class="row">
   <spinner [visible]="postsLoading"></spinner>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let post of posts">{{post.title}}</li>
+  <ul class="posts-list">
+    <li class="card" *ngFor="let post of posts">
+      <div>
+        <div class="card-header h4">
+          {{post.title}}
+        </div>
+        <div class="card-block">
+          {{post.header}}
+        </div>
+        <div class="card-footer">
+          <a routerLink="/published/edit/{{post.id}}" class="btn btn-info">Edit</a>
+          <button class="btn btn-danger" (click)="deletePost(post)">Delete</button>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>

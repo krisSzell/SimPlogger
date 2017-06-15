@@ -32,7 +32,7 @@ namespace SimPlogger.Controllers.api
             if (!ModelState.IsValid)
                 return BadRequest("Couldn't process the request.");
 
-    
+            blogPost.PostDate = DateTime.Now;
 
             _context.BlogPosts.Add(blogPost);
             _context.SaveChanges();

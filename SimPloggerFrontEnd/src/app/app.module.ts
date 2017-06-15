@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,22 +9,24 @@ import { PublishedPostsComponent } from './components/published-posts-component/
 import { SpinnerComponent } from './components/spinner.component';
 
 import { PostsService } from './services/posts.service';
-import { NewPostComponent } from './components/new-post/new-post.component';
+import { CategoriesService } from './services/categories.service';
+import { PostFormComponent } from './components/post-form/post-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublishedPostsComponent,
     SpinnerComponent,
-    NewPostComponent
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [PostsService],
+  providers: [PostsService, CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

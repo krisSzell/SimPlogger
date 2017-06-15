@@ -28,4 +28,14 @@ export class PublishedPostsComponent implements OnInit {
     this.postsLoading = false;
   }
 
+  deletePost(post) {
+    this._postsService.deletePost(post.id)
+      .subscribe(null, err => {
+        alert("Could not delete user.");
+      }, () => {
+        this.loadPosts();
+        console.log("Succesfully deleted " + post.name);
+      });
+
+  }
 }

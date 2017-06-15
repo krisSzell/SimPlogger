@@ -1,0 +1,43 @@
+<div class="row">
+  <h1>{{ title }}</h1>
+</div>
+<div class="row">
+  <div class="col-md-12 form-component">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <fieldset>
+        <legend>Post</legend>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input formControlName="title" class="form-control" type="text" name="title" id="title" value="" [(ngModel)]="post.title"
+            required>
+        </div>
+        <div class="alert alert-danger" *ngIf="form.controls.title.touched && !form.controls.title.valid">Title is required.</div>
+        <div class="form-group">
+          <label for="header">Post teaser:</label>
+          <textarea formControlName="header" class="form-control" type="text" name="header" id="header" value="" [(ngModel)]="post.header"
+            required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="body">Post body:</label>
+          <textarea formControlName="body" class="form-control" type="text" name="body" id="body" value="" rows="10" [(ngModel)]="post.body"></textarea>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Post metadata</legend>
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input formControlName="author" class="form-control" type="text" name="author" id="author" value="" [(ngModel)]="post.author">
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select class="form-control" name="category" formControlName="categoryId" [(ngModel)]="post.categoryId">
+          <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+        </select>
+        </div>
+      </fieldset>
+      <br>
+      <button class="btn btn-info btn-submit" type="submit" [disabled]="!form.valid">Save</button>
+    </form>
+    <p>{{form.value | json}}</p>
+  </div>
+</div>
