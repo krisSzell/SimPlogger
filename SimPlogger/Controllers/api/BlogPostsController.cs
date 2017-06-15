@@ -21,7 +21,7 @@ namespace SimPlogger.Controllers.api
 
         public IHttpActionResult Get()
         {
-            var blogPosts = _context.BlogPosts.ToList();
+            var blogPosts = _context.BlogPosts.Include(p => p.Category).ToList();
 
             return Ok(blogPosts);
         }
@@ -30,6 +30,8 @@ namespace SimPlogger.Controllers.api
         {
             if (!ModelState.IsValid)
                 return BadRequest("Couldn't process the request.");
+
+    
 
             _context.BlogPosts.Add(blogPost);
             _context.SaveChanges();

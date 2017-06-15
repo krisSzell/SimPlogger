@@ -163,21 +163,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706141155136_Init.cs" />
-    <Compile Include="Migrations\201706141155136_Init.Designer.cs">
-      <DependentUpon>201706141155136_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141159085_UpdatedBlogPostModel.cs" />
-    <Compile Include="Migrations\201706141159085_UpdatedBlogPostModel.Designer.cs">
-      <DependentUpon>201706141159085_UpdatedBlogPostModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141200399_AddedBlogBodyProperty.cs" />
-    <Compile Include="Migrations\201706141200399_AddedBlogBodyProperty.Designer.cs">
-      <DependentUpon>201706141200399_AddedBlogBodyProperty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.cs" />
-    <Compile Include="Migrations\201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.Designer.cs">
-      <DependentUpon>201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.cs</DependentUpon>
+    <Compile Include="Migrations\201706141615516_Init.cs" />
+    <Compile Include="Migrations\201706141615516_Init.Designer.cs">
+      <DependentUpon>201706141615516_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -222,6 +210,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\NgApp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -242,17 +231,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706141155136_Init.resx">
-      <DependentUpon>201706141155136_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141159085_UpdatedBlogPostModel.resx">
-      <DependentUpon>201706141159085_UpdatedBlogPostModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141200399_AddedBlogBodyProperty.resx">
-      <DependentUpon>201706141200399_AddedBlogBodyProperty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.resx">
-      <DependentUpon>201706141209204_ChangedRelationsBetweenBlogAndCategoryTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706141615516_Init.resx">
+      <DependentUpon>201706141615516_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -290,6 +270,14 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>echo "cd $(SolutionDir)SimPloggerFrontEnd" &amp;&amp;^
+cd "$(SolutionDir)SimPloggerFrontEnd" &amp;&amp;^
+echo "building SimPloggerFrontEnd" &amp;&amp;^
+ng build &amp;&amp;^
+echo 'copy files' &amp;&amp;^
+xcopy /I /E /Y "$(SolutionDir)SimPloggerFrontEnd\dist" "$(ProjectDir)Scripts\NgApp"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

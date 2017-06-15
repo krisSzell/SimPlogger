@@ -6,13 +6,24 @@ using System.Web.Mvc;
 
 namespace SimPlogger.Controllers
 {
+    [RoutePrefix("")]
     public class HomeController : Controller
     {
+        [Route("")]
         public ActionResult Index()
         {
-            return View();
+            return View("NgApp");
+        }
+        [Route("blog")]
+        [Route("lifestyle")]
+        [Route("dev")]
+        [Route("DSP2017")]
+        public ActionResult AppBookmarkableRoutes()
+        {
+            return View("NgApp");
         }
 
+        [Route("about")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +31,7 @@ namespace SimPlogger.Controllers
             return View();
         }
 
+        [Route("contact")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

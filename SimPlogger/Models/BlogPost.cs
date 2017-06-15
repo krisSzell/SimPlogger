@@ -8,11 +8,6 @@ namespace SimPlogger.Models
 {
     public class BlogPost
     {
-        public BlogPost()
-        {
-            Categories = new HashSet<Category>();
-        }
-        
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
@@ -24,8 +19,8 @@ namespace SimPlogger.Models
         public DateTime PostDate { get; set; }
         [Required]
         public string Author { get; set; }
-
-        public virtual ICollection<Category> Categories { get; set; }
+        public byte CategoryId { get; set; }
+        public Category Category { get; set; }
 
     }
 }
