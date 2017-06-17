@@ -68,7 +68,7 @@ namespace SimPlogger.Controllers.api
 
             blogPost.PostDate = DateTime.Now;
 
-            //_unitOfWork.BlogPosts.ChangePostStateToModified(blogPost);
+            _unitOfWork.BlogPosts.ChangePostStateToModified(blogPost);
 
             try
             {
