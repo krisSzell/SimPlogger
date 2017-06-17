@@ -15,14 +15,32 @@ require("rxjs/add/operator/map");
 var PostsService = (function () {
     function PostsService(_http) {
         this._http = _http;
-        this.postsUrl = "http://localhost:55150/api/blogposts";
+        this.postsUrl = "http://localhost:55150/api/blogposts/";
+        this.headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        this.options = new http_1.RequestOptions({
+            headers: this.headers
+        });
     }
     PostsService.prototype.getPosts = function () {
         return this._http.get(this.postsUrl)
             .map(function (res) { return res.json(); });
     };
     PostsService.prototype.getSinglePost = function (postId) {
-        return this._http.get(this.postsUrl + "/" + postId)
+        return this._http.get(this.postsUrl + postId)
+            .map(function (res) { return res.json(); });
+    };
+    PostsService.prototype.savePost = function (post) {
+        return this._http.post(this.postsUrl, JSON.stringify(post), this.options)
+            .map(function (res) { return res.json(); });
+    };
+    PostsService.prototype.updatePost = function (post, postId) {
+        return this._http.put(this.postsUrl + postId, JSON.stringify(post), this.options)
+            .map(function (res) { return res.json(); });
+    };
+    PostsService.prototype.deletePost = function (postId) {
+        return this._http.delete(this.postsUrl + postId)
             .map(function (res) { return res.json(); });
     };
     return PostsService;

@@ -9,7 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var published_posts_component_1 = require("./components/published-posts-component/published-posts.component");
+var post_form_component_1 = require("./components/post-form/post-form.component");
 var routes = [
+    { path: 'published/edit/:id', component: post_form_component_1.PostFormComponent },
+    { path: 'new', component: post_form_component_1.PostFormComponent },
     { path: 'published', component: published_posts_component_1.PublishedPostsComponent },
     { path: '', component: published_posts_component_1.PublishedPostsComponent },
     { path: '**', component: published_posts_component_1.PublishedPostsComponent }

@@ -24,12 +24,17 @@ export class PostsService {
   }
 
   getSinglePost(postId: number) {
-    return this._http.get(this.postsUrl + "/" + postId)
+    return this._http.get(this.postsUrl + postId)
       .map(res => res.json());
   }
 
   savePost(post) {
     return this._http.post(this.postsUrl, JSON.stringify(post), this.options)
+      .map(res => res.json());
+  }
+
+  updatePost(post, postId) {
+    return this._http.put(this.postsUrl + postId, JSON.stringify(post), this.options)
       .map(res => res.json());
   }
 

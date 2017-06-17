@@ -1,4 +1,6 @@
-﻿using SimPlogger.Models;
+﻿using SimPlogger.Core;
+using SimPlogger.Persistence;
+using SimPlogger.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,29 +15,41 @@ namespace SimPlogger.Controllers.api
 {
     public class BlogPostsController : ApiController
     {
-        private readonly ApplicationDbContext _context;
+        private readonly UnitOfWork _unitOfWork;
 
         public BlogPostsController()
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
-
+        
+        // Get all posts
         public IHttpActionResult Get()
         {
-            var blogPosts = _context.BlogPosts.Include(p => p.Category).ToList();
+            var blogPosts = _unitOfWork.BlogPosts.LoadAllPosts();
 
             return Ok(blogPosts);
+        }
+
+        //Get single post
+        public IHttpActionResult Get(int id)
+        {
+            var blogPost = _unitOfWork.BlogPosts.LoadPostById(id);
+
+            if (blogPost == null)
+                return NotFound();
+
+            return Ok(blogPost);
         }
 
         public IHttpActionResult Post([FromBody]BlogPost blogPost)
         {
             if (!ModelState.IsValid)
-                return BadRequest("Couldn't process the request.");
+                return BadRequest(ModelState);
 
             blogPost.PostDate = DateTime.Now;
 
-            _context.BlogPosts.Add(blogPost);
-            _context.SaveChanges();
+            _unitOfWork.BlogPosts.AddPost(blogPost);
+            _unitOfWork.PersistChanges();
 
             return Created("api/blogposts", blogPost);
         }
@@ -52,15 +66,17 @@ namespace SimPlogger.Controllers.api
                 return BadRequest();
             }
 
-            _context.Entry(blogPost).State = EntityState.Modified;
+            blogPost.PostDate = DateTime.Now;
+
+            //_unitOfWork.BlogPosts.ChangePostStateToModified(blogPost);
 
             try
             {
-                _context.SaveChanges();
+                _unitOfWork.PersistChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BlogPostExists(id))
+                if (!_unitOfWork.BlogPosts.CheckIfPostExists(id))
                 {
                     return NotFound();
                 }
@@ -75,20 +91,15 @@ namespace SimPlogger.Controllers.api
 
         public IHttpActionResult Delete(int id)
         {
-            var blogPost = _context.BlogPosts.SingleOrDefault(p => p.Id == id);
+            var blogPost = _unitOfWork.BlogPosts.LoadPostById(id);
 
             if (blogPost == null)
                 return NotFound();
 
-            _context.BlogPosts.Remove(blogPost);
-            _context.SaveChanges();
+            _unitOfWork.BlogPosts.DeletePost(blogPost);
+            _unitOfWork.PersistChanges();
 
             return Ok(blogPost);
-        }
-
-        private bool BlogPostExists(int id)
-        {
-            return _context.BlogPosts.Count(e => e.Id == id) > 0;
         }
     }
 }

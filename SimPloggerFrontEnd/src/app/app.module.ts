@@ -11,13 +11,15 @@ import { SpinnerComponent } from './components/spinner.component';
 import { PostsService } from './services/posts.service';
 import { CategoriesService } from './services/categories.service';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublishedPostsComponent,
     SpinnerComponent,
-    PostFormComponent
+    PostFormComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -17,17 +17,22 @@
           <textarea formControlName="header" class="form-control" type="text" name="header" id="header" value="" [(ngModel)]="post.header"
             required></textarea>
         </div>
+        <div class="alert alert-danger" *ngIf="form.controls.header.touched && !form.controls.header.valid">Post teaser is required.</div>
         <div class="form-group">
           <label for="body">Post body:</label>
-          <textarea formControlName="body" class="form-control" type="text" name="body" id="body" value="" rows="10" [(ngModel)]="post.body"></textarea>
+          <textarea formControlName="body" class="form-control" type="text" name="body" id="body" value="" rows="10" [(ngModel)]="post.body"
+            required></textarea>
         </div>
+        <div class="alert alert-danger" *ngIf="form.controls.body.touched && !form.controls.body.valid">Body is required.</div>
       </fieldset>
       <fieldset>
         <legend>Post metadata</legend>
         <div class="form-group">
           <label for="author">Author:</label>
-          <input formControlName="author" class="form-control" type="text" name="author" id="author" value="" [(ngModel)]="post.author">
+          <input formControlName="author" class="form-control" type="text" name="author" id="author" value="" [(ngModel)]="post.author"
+            required>
         </div>
+        <div class="alert alert-danger" *ngIf="form.controls.author.touched && !form.controls.author.valid">Author is required.</div>
         <div class="form-group">
           <label for="category">Category:</label>
           <select class="form-control" name="category" formControlName="categoryId" [(ngModel)]="post.categoryId">
@@ -38,6 +43,5 @@
       <br>
       <button class="btn btn-info btn-submit" type="submit" [disabled]="!form.valid">Save</button>
     </form>
-    <p>{{form.value | json}}</p>
   </div>
 </div>

@@ -5,14 +5,14 @@ namespace SimPlogger.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SimPlogger.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SimPlogger.Persistence.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SimPlogger.Models.ApplicationDbContext context)
+        protected override void Seed(SimPlogger.Persistence.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

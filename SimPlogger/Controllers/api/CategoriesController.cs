@@ -1,4 +1,4 @@
-﻿using SimPlogger.Models;
+﻿using SimPlogger.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;

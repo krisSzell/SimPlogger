@@ -1,14 +1,14 @@
-@primary-color: #384997;
-@primary-color-bg: #a1b2cd;
+@import "./shared/color-definitions.less";
 .main-container {
-    position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: @primary-color-bg;
+    background-color: @color-bg;
+    overflow-x: hidden;
 }
 
 .main-content {
-    margin-left: 420px;
+    margin-left: 440px;
+    margin-right: 40px;
 }
 
 .side-nav {
@@ -18,12 +18,12 @@
     width: 400px;
     z-index: 1;
     background-color: @primary-color;
+    font-family: 'Exo', sans-serif;
 }
 
 .text-heading {
-    font-family: 'Exo', sans-serif;
     font-weight: 300;
-    color: #EDF0FE;
+    color: @color-bg;
 }
 
 .text-80 {
@@ -42,8 +42,8 @@
         padding-top: .5rem;
         padding-bottom: .5rem;
         .nav-link {
-            color: #EDF0FE;
-            font-weight: 600;
+            color: @color-bg;
+            font-weight: 300;
         }
         .active {
             margin-left: 2rem;
@@ -52,7 +52,7 @@
             padding-bottom: 1rem;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            background-color: @primary-color-bg;
+            background-color: @color-bg;
             color: @primary-color;
         }
     }

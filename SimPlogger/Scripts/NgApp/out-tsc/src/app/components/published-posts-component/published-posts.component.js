@@ -26,6 +26,17 @@ var PublishedPostsComponent = (function () {
         this.postsLoading = true;
         this._postsService.getPosts()
             .subscribe(function (posts) { return _this.posts = posts; });
+        this.postsLoading = false;
+    };
+    PublishedPostsComponent.prototype.deletePost = function (post) {
+        var _this = this;
+        this._postsService.deletePost(post.id)
+            .subscribe(null, function (err) {
+            alert("Could not delete user.");
+        }, function () {
+            _this.loadPosts();
+            console.log("Succesfully deleted " + post.name);
+        });
     };
     return PublishedPostsComponent;
 }());

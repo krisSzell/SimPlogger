@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Router, Routes, RouterModule } from '@angular/router';
 import { PublishedPostsComponent } from './components/published-posts-component/published-posts.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: 'published/edit/:id', component: PostFormComponent },
   { path: 'new', component: PostFormComponent },
   { path: 'published', component: PublishedPostsComponent },
+  { path: 'about', component: AboutComponent },
   { path: '', component: PublishedPostsComponent },
   { path: '**', component: PublishedPostsComponent }
 

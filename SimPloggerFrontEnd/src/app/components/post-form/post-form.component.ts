@@ -42,18 +42,31 @@ export class PostFormComponent implements OnInit {
     }
 
     this.form = this._formBuilder.group({
+      id: [],
       title: ['', Validators.required],
       header: ['', Validators.required],
-      body: [],
-      author: [],
+      body: ['', Validators.required],
+      author: ['', Validators.required],
       categoryId: []
     });
 
   }
 
   save() {
-    this._postsService.savePost(this.form.value)
-      .subscribe(res => this.cleanupForm());
+    // Noticed that you have to populate id control, even when creating new post and postId is null
+    // what's more funny, when you setValue of 'new post' id to null instead of 'postId' 
+    // there's error on server side
+    this.form.get('id').setValue(this.postId);
+
+    if (this.postId != null) {
+      this._postsService.updatePost(this.form.value, this.postId)
+        .subscribe(res => this.cleanupForm());
+    }
+    else {
+      this._postsService.savePost(this.form.value)
+        .subscribe(res => this.cleanupForm());
+    }
+
   }
 
   cleanupForm() {

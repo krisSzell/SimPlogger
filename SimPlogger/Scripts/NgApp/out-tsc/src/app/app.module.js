@@ -15,6 +15,8 @@ var app_component_1 = require("./app.component");
 var published_posts_component_1 = require("./components/published-posts-component/published-posts.component");
 var spinner_component_1 = require("./components/spinner.component");
 var posts_service_1 = require("./services/posts.service");
+var categories_service_1 = require("./services/categories.service");
+var post_form_component_1 = require("./components/post-form/post-form.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,15 +27,17 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             published_posts_component_1.PublishedPostsComponent,
-            spinner_component_1.SpinnerComponent
+            spinner_component_1.SpinnerComponent,
+            post_form_component_1.PostFormComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            forms_1.ReactiveFormsModule,
             http_1.HttpModule,
             app_routing_module_1.AppRoutingModule
         ],
-        providers: [posts_service_1.PostsService],
+        providers: [posts_service_1.PostsService, categories_service_1.CategoriesService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

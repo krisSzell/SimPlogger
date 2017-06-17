@@ -29,13 +29,15 @@ export class PublishedPostsComponent implements OnInit {
   }
 
   deletePost(post) {
-    this._postsService.deletePost(post.id)
-      .subscribe(null, err => {
-        alert("Could not delete user.");
-      }, () => {
-        this.loadPosts();
-        console.log("Succesfully deleted " + post.name);
-      });
-
+    if (confirm("Are you sure you want to delete " + post.title + " post?")) {
+      this._postsService.deletePost(post.id)
+        .subscribe(null, err => {
+          alert("Could not delete user.");
+        }, () => {
+          this.loadPosts();
+          console.log("Succesfully deleted " + post.name);
+        });
+    }
   }
+
 }
